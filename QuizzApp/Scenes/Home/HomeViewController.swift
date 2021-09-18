@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = Colors.primary
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        navigationController?.navigationItem.backButtonTitle = "voltar"
     }
     
     fileprivate func setLayout(){
@@ -41,5 +42,11 @@ class HomeViewController: UIViewController {
         containerView.layer.borderWidth = Layout.borderWidth
         containerView.layer.borderColor = Colors.lightGray.cgColor
     }
-
+    
+    @IBAction func start(_ sender: UIButton) {
+        let questionViewController = QuestionViewController()
+        navigationController?.pushViewController(questionViewController,
+                                                 animated: true)
+    }
+    
 }

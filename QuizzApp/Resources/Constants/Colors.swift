@@ -16,5 +16,4 @@ struct Colors {
     static let lightGray = UIColor(named: "lightGray") ?? debugColor
     static let green = UIColor(named: "green") ?? debugColor
     static let lightGreen = UIColor(named: "lightGreen") ?? debugColor
-    
 }
