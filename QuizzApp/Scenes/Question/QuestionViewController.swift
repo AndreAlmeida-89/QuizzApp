@@ -13,7 +13,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet var lbQuestion: UILabel!
     @IBOutlet var lbTableTitle: UILabel!
     @IBOutlet var tvAlternatives: UITableView!
- 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableview()
@@ -23,13 +23,18 @@ class QuestionViewController: UIViewController {
     fileprivate func setLayout(){
         title = Strings.navigationBarTitle
         btAnswer.layer.cornerRadius = btAnswer.bounds.size.height.half
+        btAnswer.setTitle(Strings.ButtonTitle.answer,
+                          for: .normal)
+        btAnswer.isEnabled = false
     }
     
     fileprivate func setupTableview() {
         tvAlternatives.dataSource = self
         tvAlternatives.delegate = self
-        tvAlternatives.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tvAlternatives.estimatedRowHeight = 20
+        tvAlternatives.register(UINib(nibName: AlternativeTableViewCell.nibName,
+                                      bundle: nil),
+                                forCellReuseIdentifier: AlternativeTableViewCell.cellReuseIdentifier)
+        tvAlternatives.rowHeight = 60
     }
 }
 
@@ -41,7 +46,7 @@ extension QuestionViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
+        let cell = tableView.dequeueReusableCell(withIdentifier: AlternativeTableViewCell.cellReuseIdentifier,
                                                  for: indexPath)
         cell.textLabel?.text = "Alternativa"
         return cell
