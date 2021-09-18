@@ -12,6 +12,10 @@
 		65D33B4A26F640670052BADD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D33B4826F640670052BADD /* LaunchScreen.storyboard */; };
 		65D33B5826F641450052BADD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D33B5626F641450052BADD /* HomeViewController.swift */; };
 		65D33B5926F641450052BADD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D33B5726F641450052BADD /* HomeViewController.xib */; };
+		65D33B6226F649DD0052BADD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D33B6126F649DD0052BADD /* Colors.swift */; };
+		65D33B6426F64E710052BADD /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D33B6326F64E710052BADD /* Strings.swift */; };
+		65D33B6726F65B560052BADD /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D33B6626F65B560052BADD /* Layout.swift */; };
+		65D33B6A26F65CB30052BADD /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D33B6926F65CB30052BADD /* CGFloat+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		65D33B4B26F640670052BADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65D33B5626F641450052BADD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		65D33B5726F641450052BADD /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		65D33B6126F649DD0052BADD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		65D33B6326F64E710052BADD /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		65D33B6626F65B560052BADD /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		65D33B6926F65CB30052BADD /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 		65D33B3C26F640660052BADD /* QuizzApp */ = {
 			isa = PBXGroup;
 			children = (
+				65D33B5A26F646890052BADD /* Comons */,
 				65D33B5126F640E50052BADD /* Source */,
 				65D33B5426F641060052BADD /* Scenes */,
 				65D33B5326F640F70052BADD /* Resources */,
@@ -72,6 +81,8 @@
 		65D33B5326F640F70052BADD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65D33B6826F65C900052BADD /* Extensions */,
+				65D33B5B26F6499F0052BADD /* Constants */,
 				65D33B4626F640670052BADD /* Assets.xcassets */,
 				65D33B4826F640670052BADD /* LaunchScreen.storyboard */,
 				65D33B4B26F640670052BADD /* Info.plist */,
@@ -94,6 +105,31 @@
 				65D33B5726F641450052BADD /* HomeViewController.xib */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		65D33B5A26F646890052BADD /* Comons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Comons;
+			sourceTree = "<group>";
+		};
+		65D33B5B26F6499F0052BADD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				65D33B6126F649DD0052BADD /* Colors.swift */,
+				65D33B6326F64E710052BADD /* Strings.swift */,
+				65D33B6626F65B560052BADD /* Layout.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		65D33B6826F65C900052BADD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				65D33B6926F65CB30052BADD /* CGFloat+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +204,10 @@
 			files = (
 				65D33B3E26F640660052BADD /* AppDelegate.swift in Sources */,
 				65D33B5826F641450052BADD /* HomeViewController.swift in Sources */,
+				65D33B6726F65B560052BADD /* Layout.swift in Sources */,
+				65D33B6426F64E710052BADD /* Strings.swift in Sources */,
+				65D33B6A26F65CB30052BADD /* CGFloat+Extensions.swift in Sources */,
+				65D33B6226F649DD0052BADD /* Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

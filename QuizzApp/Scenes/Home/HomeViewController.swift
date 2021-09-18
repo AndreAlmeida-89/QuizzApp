@@ -8,9 +8,38 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    
+    @IBOutlet var containerView: UIView!
+    @IBOutlet var lbTitle: UILabel!
+    @IBOutlet var lbSubtitle: UILabel!
+    @IBOutlet var btStart: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationController()
+        setLayout()
+    }
+    
+    //MARK:-Layout
+    fileprivate func setNavigationController(){
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = Colors.primary
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+    }
+    
+    fileprivate func setLayout(){
+        title = Strings.navigationBarTitle
+        lbTitle.text = Strings.StartScene.title
+        lbSubtitle.text = Strings.StartScene.subtitle
+        btStart.setTitle(Strings.ButtonTitle.start,
+                         for: .normal)
+        btStart.layer.cornerRadius = btStart.bounds.size.height.half
+        containerView.layer.cornerRadius = Layout.cornerRadius
+        containerView.layer.borderWidth = Layout.borderWidth
+        containerView.layer.borderColor = Colors.lightGray.cgColor
     }
 
 }
