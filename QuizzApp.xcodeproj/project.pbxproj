@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EC4532C26F77B3500789BFD /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC4532A26F77B3500789BFD /* FinalViewController.swift */; };
+		2EC4532D26F77B3500789BFD /* FinalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EC4532B26F77B3500789BFD /* FinalViewController.xib */; };
 		65D33B3E26F640660052BADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D33B3D26F640660052BADD /* AppDelegate.swift */; };
 		65D33B4726F640670052BADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65D33B4626F640670052BADD /* Assets.xcassets */; };
 		65D33B4A26F640670052BADD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D33B4826F640670052BADD /* LaunchScreen.storyboard */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EC4532A26F77B3500789BFD /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		2EC4532B26F77B3500789BFD /* FinalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinalViewController.xib; sourceTree = "<group>"; };
 		65D33B3A26F640660052BADD /* QuizzApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizzApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D33B3D26F640660052BADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65D33B4626F640670052BADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EC4532926F77B2000789BFD /* Final */ = {
+			isa = PBXGroup;
+			children = (
+				2EC4532A26F77B3500789BFD /* FinalViewController.swift */,
+				2EC4532B26F77B3500789BFD /* FinalViewController.xib */,
+			);
+			path = Final;
+			sourceTree = "<group>";
+		};
 		65D33B3126F640660052BADD = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +119,7 @@
 		65D33B5426F641060052BADD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2EC4532926F77B2000789BFD /* Final */,
 				65D33B6B26F65E160052BADD /* Question */,
 				65D33B5526F641340052BADD /* Home */,
 			);
@@ -236,6 +250,7 @@
 				65D33B6F26F65E430052BADD /* QuestionViewController.xib in Resources */,
 				65D33B5926F641450052BADD /* HomeViewController.xib in Resources */,
 				65D33B7426F667F00052BADD /* AlternativeTableViewCell.xib in Resources */,
+				2EC4532D26F77B3500789BFD /* FinalViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +267,7 @@
 				65D33B6E26F65E430052BADD /* QuestionViewController.swift in Sources */,
 				65D33B7A26F697120052BADD /* Question.swift in Sources */,
 				65D33B7326F667F00052BADD /* AlternativeTableViewCell.swift in Sources */,
+				2EC4532C26F77B3500789BFD /* FinalViewController.swift in Sources */,
 				65D33B6726F65B560052BADD /* Layout.swift in Sources */,
 				65D33B6426F64E710052BADD /* Strings.swift in Sources */,
 				65D33B6A26F65CB30052BADD /* CGFloat+Extensions.swift in Sources */,

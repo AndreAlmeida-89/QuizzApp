@@ -30,11 +30,14 @@ struct QuestionManager {
         _totalCorrectAnswers
     }
     
-    mutating func chooseAnswer(_ number: Int) {
+    mutating func chooseAnswer(_ answer: String) -> Bool? {
+        guard let answer = Int(answer) else {return nil}
         _totalAnswers += 1
-        if questionInstance.validateAnswer(number) {
+        if questionInstance.validateAnswer(answer) {
             _totalCorrectAnswers += 1
+            return true
         }
+        return false
     }
     
 }

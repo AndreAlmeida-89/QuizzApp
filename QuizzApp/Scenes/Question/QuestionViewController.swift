@@ -13,7 +13,17 @@ class QuestionViewController: UIViewController {
     @IBOutlet var lbQuestion: UILabel!
     @IBOutlet var lbTableTitle: UILabel!
     @IBOutlet var tvAlternatives: UITableView!
-
+    
+    private var questionManager = QuestionManager()
+    var selectedCell: AlternativeTableViewCell?
+    
+    
+    @IBAction func answer(_ sender: UIButton) {
+        guard let chosenAnswer = selectedCell?.textLabel?.text else {return}
+        let isCorrect = questionManager.chooseAnswer(chosenAnswer)
+        isCorrect! ? selectedCell?.setupLayout(for: .correct) : selectedCell?.setupLayout(for: .wrong)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableview()
@@ -22,6 +32,8 @@ class QuestionViewController: UIViewController {
     
     fileprivate func setLayout(){
         title = Strings.navigationBarTitle
+        lbQuestion.text = questionManager.question
+        lbTableTitle.text = Strings.QuestionScene.answers
         btAnswer.layer.cornerRadius = btAnswer.bounds.size.height.half
         btAnswer.setTitle(Strings.ButtonTitle.answer,
                           for: .normal)
@@ -36,25 +48,35 @@ class QuestionViewController: UIViewController {
                                 forCellReuseIdentifier: AlternativeTableViewCell.cellReuseIdentifier)
         tvAlternatives.rowHeight = 60
     }
+    
+    fileprivate func ennableButton() {
+        guard !btAnswer.isEnabled else {return}
+        btAnswer.isEnabled = true
+        btAnswer.backgroundColor = Colors.primary
+    }
 }
 
 extension QuestionViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        4
+        questionManager.alternatives.count
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AlternativeTableViewCell.cellReuseIdentifier,
                                                  for: indexPath)
-        cell.textLabel?.text = "Alternativa"
+        cell.textLabel?.text = questionManager.alternatives[indexPath.row]
         return cell
     }
 }
 
 extension QuestionViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ennableButton()
+        selectedCell = tableView.cellForRow(at: indexPath) as? AlternativeTableViewCell
+        selectedCell?.setupLayout(for: .selected)
+    }
 }
 
 

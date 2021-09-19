@@ -21,4 +21,8 @@ struct Strings {
         static let answer  = "Responder"
         static let nextQuestion  = "Próxima pergunta"
     }
+    
+    struct QuestionScene{
+        static let answers = "Respostas"
+    }
 }
