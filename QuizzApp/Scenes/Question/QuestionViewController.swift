@@ -8,20 +8,48 @@
 import UIKit
 
 class QuestionViewController: UIViewController {
-
+    
     @IBOutlet var btAnswer: UIButton!
     @IBOutlet var lbQuestion: UILabel!
     @IBOutlet var lbTableTitle: UILabel!
     @IBOutlet var tvAlternatives: UITableView!
     
     private var questionManager = QuestionManager()
-    var selectedCell: AlternativeTableViewCell?
-    
+    private var selectedCell: AlternativeTableViewCell?
+    private var correctCellRow: IndexPath?
     
     @IBAction func answer(_ sender: UIButton) {
         guard let chosenAnswer = selectedCell?.textLabel?.text else {return}
-        let isCorrect = questionManager.chooseAnswer(chosenAnswer)
-        isCorrect! ? selectedCell?.setupLayout(for: .correct) : selectedCell?.setupLayout(for: .wrong)
+        guard let titleText = sender.titleLabel?.text else {return}
+        
+        switch titleText {
+        
+        case Strings.ButtonTitle.answer:
+            btAnswer.setTitle(Strings.ButtonTitle.nextQuestion,
+                              for: .normal)
+            let isCorrect = questionManager.chooseAnswer(chosenAnswer)!
+            
+            if isCorrect {
+                selectedCell?.setupLayout(for: .correct)
+            } else {
+                selectedCell?.setupLayout(for: .wrong)
+                
+            }
+            
+        case Strings.ButtonTitle.nextQuestion:
+            if QuestionManager._totalAnswers == questionManager.limit {
+                let finalViewController = FinalViewController()
+                navigationController?.pushViewController(finalViewController,
+                                                         animated: true)
+                return
+            }
+            let nextQuestionViewController = QuestionViewController()
+            navigationController?.pushViewController(nextQuestionViewController,
+                                                     animated: true)
+        default:
+            return
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -41,12 +69,14 @@ class QuestionViewController: UIViewController {
     }
     
     fileprivate func setupTableview() {
+        tvAlternatives.separatorStyle = .none
+        tvAlternatives.rowHeight = UITableView.automaticDimension
         tvAlternatives.dataSource = self
         tvAlternatives.delegate = self
         tvAlternatives.register(UINib(nibName: AlternativeTableViewCell.nibName,
                                       bundle: nil),
                                 forCellReuseIdentifier: AlternativeTableViewCell.cellReuseIdentifier)
-        tvAlternatives.rowHeight = 60
+        
     }
     
     fileprivate func ennableButton() {
@@ -66,7 +96,8 @@ extension QuestionViewController: UITableViewDataSource{
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AlternativeTableViewCell.cellReuseIdentifier,
                                                  for: indexPath)
-        cell.textLabel?.text = questionManager.alternatives[indexPath.row]
+        let cellLable = questionManager.alternatives[indexPath.row]
+        cell.textLabel?.text = cellLable
         return cell
     }
 }
@@ -75,7 +106,6 @@ extension QuestionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ennableButton()
         selectedCell = tableView.cellForRow(at: indexPath) as? AlternativeTableViewCell
-        selectedCell?.setupLayout(for: .selected)
     }
 }
 

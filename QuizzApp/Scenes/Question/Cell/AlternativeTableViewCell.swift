@@ -11,12 +11,14 @@ enum AlternativeTableViewCellType{
     case correct
     case wrong
     case selected
+    case unSelected
 }
 
 class AlternativeTableViewCell: UITableViewCell {
     static let nibName = "AlternativeTableViewCell"
     static let cellReuseIdentifier = "AlternativeTableViewCell"
     
+    @IBOutlet weak var vwContentView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         setupLayout()
@@ -24,33 +26,34 @@ class AlternativeTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        selected ? setupLayout(for: .selected) : setupLayout(for:.unSelected)
     }
     
     fileprivate func setupLayout(){
-        layer.cornerRadius = Layout.cornerRadius
-        layer.borderWidth = Layout.borderWidth
-        layer.borderColor = Colors.lightGray.cgColor
+        vwContentView.layer.cornerRadius = Layout.cellCornerRadius
+        vwContentView.layer.borderWidth = Layout.borderWidth
+        setupLayout(for: .unSelected)
     }
     
     func setupLayout(for type: AlternativeTableViewCellType){
         switch type {
         case .selected:
-            backgroundColor = Colors.primary
-            layer.borderColor = Colors.primary.cgColor
+            changeCellColor(to: Colors.primaryLight,
+                            border: Colors.primary)
         case .correct:
-            backgroundColor = Colors.lightGreen
-            layer.borderColor = Colors.green.cgColor
+            changeCellColor(to: Colors.lightGreen,
+                            border: Colors.green)
         case .wrong:
-            backgroundColor = Colors.secondary
-            layer.borderColor = Colors.secondary.cgColor
-        }
-    }
-        
-    override var isSelected: Bool {
-        didSet{
-            isSelected ? print("selected") : print("not selected")
+            changeCellColor(to: Colors.secondaryLight,
+                            border: Colors.secondary)
+        case .unSelected:
+            changeCellColor(to: .white,
+                            border: Colors.lightGray)
         }
     }
     
-    
+    private func changeCellColor(to background: UIColor, border: UIColor){
+        vwContentView.backgroundColor = background
+        vwContentView.layer.borderColor = border.cgColor
+    }
 }

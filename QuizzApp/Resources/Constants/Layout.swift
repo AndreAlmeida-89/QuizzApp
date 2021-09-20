@@ -7,6 +7,7 @@
 import UIKit
 
 struct Layout {
-    static let cornerRadius: CGFloat = 30
+    static let containerCornerRadius: CGFloat = 30
+    static let cellCornerRadius: CGFloat = 20
     static let borderWidth: CGFloat = 1
 }

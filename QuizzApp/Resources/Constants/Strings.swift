@@ -20,9 +20,18 @@ struct Strings {
         static let start  = "Start!"
         static let answer  = "Responder"
         static let nextQuestion  = "Próxima pergunta"
+        static let tryAgain = "Tentar novamente"
     }
     
     struct QuestionScene{
         static let answers = "Respostas"
+    }
+    
+    struct FinalScene {
+        static let title = "Perguntas e Respostas"
+        static let subtitle = "Sua pontuação doi de:"
+        static let correct = { (correct: Int, total: Int) in
+            "\(correct)/\(total) Acertos"
+        }
     }
 }

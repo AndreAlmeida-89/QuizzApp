@@ -88,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				65D33B7826F697050052BADD /* Models */,
-				65D33B5A26F646890052BADD /* Comons */,
 				65D33B5126F640E50052BADD /* Source */,
 				65D33B5426F641060052BADD /* Scenes */,
 				65D33B5326F640F70052BADD /* Resources */,
@@ -133,13 +132,6 @@
 				65D33B5726F641450052BADD /* HomeViewController.xib */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		65D33B5A26F646890052BADD /* Comons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Comons;
 			sourceTree = "<group>";
 		};
 		65D33B5B26F6499F0052BADD /* Constants */ = {

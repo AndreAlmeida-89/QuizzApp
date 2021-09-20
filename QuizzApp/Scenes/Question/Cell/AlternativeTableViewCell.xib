@@ -13,12 +13,30 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="AlternativeTableViewCell" customModule="QuizzApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="AlternativeTableViewCell" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" restorationIdentifier="AlternativeTableViewCell" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAj-sV-3qQ">
+                        <rect key="frame" x="8" y="4" width="304" height="80"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="cN8-VV-4Yw"/>
+                        </constraints>
+                    </view>
+                </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="LAj-sV-3qQ" secondAttribute="bottom" constant="4" id="6lk-Nh-aAc"/>
+                    <constraint firstItem="LAj-sV-3qQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ASX-BX-QE1"/>
+                    <constraint firstAttribute="trailing" secondItem="LAj-sV-3qQ" secondAttribute="trailing" constant="8" id="hpn-bD-3j8"/>
+                    <constraint firstItem="LAj-sV-3qQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="n9f-0D-lfC"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="vwContentView" destination="LAj-sV-3qQ" id="qbt-hH-xJ8"/>
+            </connections>
             <point key="canvasLocation" x="21.739130434782609" y="176.78571428571428"/>
         </tableViewCell>
     </objects>

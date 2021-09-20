@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
         btStart.setTitle(Strings.ButtonTitle.start,
                          for: .normal)
         btStart.layer.cornerRadius = btStart.bounds.size.height.half
-        containerView.layer.cornerRadius = Layout.cornerRadius
+        containerView.layer.cornerRadius = Layout.containerCornerRadius
         containerView.layer.borderWidth = Layout.borderWidth
         containerView.layer.borderColor = Colors.lightGray.cgColor
     }
