@@ -36,6 +36,7 @@ class FinalViewController: UIViewController {
     @IBAction func reset(_ sender: UIButton) {
         QuestionManager.reset()
         let homeViewController = HomeViewController()
-        navigationController?.pushViewController(homeViewController, animated: true)
+        navigationController?.pushViewController(homeViewController,
+                                                 animated: true)
     }
 }

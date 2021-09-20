@@ -27,6 +27,7 @@ class QuestionViewController: UIViewController {
         case Strings.ButtonTitle.answer:
             btAnswer.setTitle(Strings.ButtonTitle.nextQuestion,
                               for: .normal)
+            tvAlternatives.allowsSelection = false
             let isCorrect = questionManager.chooseAnswer(chosenAnswer)!
             
             if isCorrect {
