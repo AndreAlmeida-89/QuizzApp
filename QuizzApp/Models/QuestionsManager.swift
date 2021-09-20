@@ -8,11 +8,16 @@
 import Foundation
 
 
-struct QuestionManager {
+class QuestionManager {
     
-    private var questionInstance = Question()
-    private var _totalAnswers = 0
-    private var _totalCorrectAnswers = 0
+    private var questionInstance: Question
+    static private(set) var _totalAnswers = 0
+    static private(set) var _totalCorrectAnswers = 0
+    static private let _limit = 10
+    
+    init() {
+        self.questionInstance = Question()
+    }
     
     var question: String {
         questionInstance.question
@@ -23,18 +28,30 @@ struct QuestionManager {
     }
     
     var totalAnswers: Int {
-        _totalAnswers
+        QuestionManager._totalAnswers
     }
     
     var totalCorrectAnswers: Int {
-        _totalCorrectAnswers
+        QuestionManager._totalCorrectAnswers
     }
     
-    mutating func chooseAnswer(_ number: Int) {
-        _totalAnswers += 1
-        if questionInstance.validateAnswer(number) {
-            _totalCorrectAnswers += 1
+    var limit: Int {
+        QuestionManager._limit
+    }
+    
+    func chooseAnswer(_ answer: String) -> Bool? {
+        guard let answer = Int(answer) else {return nil}
+        QuestionManager._totalAnswers += 1
+        if questionInstance.validateAnswer(answer) {
+            QuestionManager._totalCorrectAnswers += 1
+            return true
         }
+        return false
+    }
+    
+    class func reset(){
+        QuestionManager._totalAnswers = 0
+        QuestionManager._totalCorrectAnswers = 0
     }
     
 }
